@@ -15,11 +15,19 @@ fn main() {
     list2.sort();
 
     println!(
-        "{}",
+        "Part 1: {}",
         list1
             .iter()
             .enumerate()
             .map(|(idx, y)| list2[idx].abs_diff(*y))
+            .sum::<usize>()
+    );
+
+    println!(
+        "Part 2: {}",
+        list1
+            .iter()
+            .map(|y| *y * list2.iter().filter(|a| **a == *y).count())
             .sum::<usize>()
     );
 }
